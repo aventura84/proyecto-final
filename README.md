@@ -6,7 +6,7 @@ Este proyecto presenta un clon de instagram desarrollado con instagram y una bas
 
 Presenta usuarios registrados y no registrados.
 
-#Instalción
+#Instalación
 npm i
 npm start
 yarn
