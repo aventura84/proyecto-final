@@ -10,3 +10,6 @@ Presenta usuarios registrados y no registrados.
 npm i
 npm start
 yarn
+nppm i dotenv
+
+
