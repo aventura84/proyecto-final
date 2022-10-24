@@ -10,6 +10,7 @@ Presenta usuarios registrados y no registrados.
 npm i
 npm start
 yarn
-nppm i dotenv
+npm i dotenv
+npm build run
 
 
