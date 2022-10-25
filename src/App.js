@@ -5,9 +5,10 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
 import Home from "./Home/Home";
-import Post from "./Post";
+import Post from "./Components/Post";
 import { useState,useEffect } from "react";
 import SingIn from "./SignIn/SignIn";
+import dotenv from dotenv;
 
 
 function App() {
@@ -15,6 +16,7 @@ const classes=useStyles();
 const [modalStyle]=useState(getModalStyle);
 const[posts,setPosts]=useState([]);
 const[open, setOpen]=useState(false);
+const[openSignIn,setOpenSignIn]=useState(false)
 const[username,setUsername]=useState('');
 const[password,setPassword]=useState('');
 const[email,setEmail]=useState('');
@@ -33,7 +35,7 @@ useEffect(()=>{
     }else{
       //if we just created someone
 return authUser.updateProfile({
-  displayName:username,
+  displayName:username
 });
 }
   }else{
@@ -61,7 +63,7 @@ setPosts(snapshot.docs.map(doc=>({
 const signUp =(event)=>{
 event.preventDefault();
 
-aur
+
   return (
       <div className="app">
       <Modal
@@ -69,61 +71,78 @@ aur
       onClose={()=>setOpen (false)}
       >
       <div style={modalStyle}className={classes.paper}>
-            <form className="app_signup"
-            <center>
-              <img
-        className="app__headerImage"
-        src="https//www.instagram.com/static/images/web/"
-        alt=""
-      />
-      </center>
-      <Input
-      type="text"
-      placeholder="username"
-      value={username}
-      onChange={(e)=>setUsername(e.target.value)}
+    
+
+      
+<Input
+type="text"
+placeholder="username"
+value={username}
+onChange={(e)=>setUsername(e.target.value)}
 >
 <Input
-      placeholder="email"
-      type="text"
-      value={email}
-      onChange={(e)=>setEmail(e.target.value)}
->
+placeholder="email"
+type="text"
+value={email}
+onChange={(e)=>setEmail(e.target.value)}
+/>
 <Input
-      placeholder="password"
-      type="password"
-      value={password}
-      onChange={(e)=>setPassword(e.target.value)}
-></center>
-      </div>
-      </Modal>
+placeholder="password"
+type="password"
+value={password}
+onChange={(e)=>setPassword(e.target.value)}
+>
+<Button type="submit"onClick={signIn}>Sign In</Button>
+</form>
+</div>
+</Modal>
+
+<div className="app__header">
+<img
 className="app__headerImage"
-      <div className="app_posts">
+      src="https://www.instagram.com/static/images/web/mobile_nav_type"
+      alt=""
+      />
+</div>
+<h1>Hello Clever Programmers Let's build an Instagram Clon with React</h1>
+      {user?(
+<Button onClick={()=>auth.signOut()}>Logout</Button>
+      ):(
+<div className="app__loginContainer">
+<Button onClick={()=>setOpenSignIn(true)}>Sign In</Button>
+<Button onClick={()=>setOpen(true)}>Sign Up</Button>
+</div>
+      )}
+      <div className="app__posts">
+        <div className="app__postsLeft">
       {
   posts.map(({id,post})=>(
     <Post key={id} username={post.username}caption={post.caption} imageUrl={}/>
   ))
 }
 </div>
-<Instagramembed
-url=
-maxWidth
-hideCaption=
-containerTagName=
-protocol=
-Injectscripr=
-onLoading=
-onSucess=
-onAfterRender=
-onFailure=
-></Instagramembed>
+<div className="app__postsRight></div>"
+<Instagramembed>
+url='https://instagram.com/p/B_uf9dmAGPw'
+maxWidth={320}
+hideCaption={false}
+containerTagName='div'
+protocol=''
+injectscript
+onLoading={()=>{}}
+onSucess={()=>{}}
+onAfterRender={()=>{}}
+onFailure={()=>{}}
+</Instagramembed>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="signin"element={<Signin/>}/>
+        <Route path=""
       </Routes>
+
       <Footer />
 
 
