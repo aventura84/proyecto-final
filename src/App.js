@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import { Routes, Route } from "react-router-dom";
-//import Login from "./Login/Login";
+import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
 import Home from "./Home/Home";
 import Post from "./Components/Post";
@@ -33,7 +33,7 @@ export default App;
   //         if (authUser.displayName) {
   //           //dont update username
   //         } else {
-  //           //if we just created someone
+  //           if we just created someone
   //           return authUser.updateProfile({
   //             displayName: username
   //           });
