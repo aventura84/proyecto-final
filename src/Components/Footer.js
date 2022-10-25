@@ -1,5 +1,5 @@
 const Footer = () => {
-  return <footer>(c) 2022 Alejandro Andrés y Antonio Ventura</footer>;
+  return <footer>(c)Antonio Ventura</footer>;
 };
 
 export default Footer;
