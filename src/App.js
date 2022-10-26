@@ -7,7 +7,7 @@ import Signup from "./Signup/Signup";
 import Home from "./Home/Home";
 import Post from "./Components/Post";
 import { useState, useEffect } from "react";
-
+//import ProfileIcon from"./ProfileIcon"
 function App(){
 //const [modalStyle]=useState(getModalStyle);
 const[posts,setPosts]=useState([]);
