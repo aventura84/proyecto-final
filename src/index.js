@@ -14,7 +14,6 @@ root.render(
     <BrowserRouter>
       <UserProvider>
         <SignUpScreen/>
-        <LoginScreen/>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>

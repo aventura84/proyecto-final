@@ -23,9 +23,9 @@ export default App;
 //const[email,setEmail]=useState('');
 //const[user,setUser]=useState(null);
 //   useEffect(() => {
-  //     const unsubscribe = AuthenticatorAssertionResponse.onAuthStateChanged((authUser) => {
-  //       if (authUser) {
-  //         console.log(authUser);
+//     const unsubscribe = AuthenticatorAssertionResponse.onAuthStateChanged((authUser) => {
+//       if (authUser) {
+//         console.log(authUser);
   //         //user has logged in....
   //         console.log(authUser);
   //         setUser(authUser);
