@@ -71,7 +71,7 @@ export default App;
   //           onClose={() => setOpen(false)}
   //         >
   //           <div style={modalStyle} className={classes.paper}>
-  
+  //<form>
   //             <Input
   //               type="text"
   //               placeholder="username"
@@ -98,7 +98,7 @@ export default App;
   //         <div className="app__header">
   //           <img
   //             className="app__headerImage"
-  //             src="https://www.instagram.com/static/images/web/mobile_nav_type"
+  //             src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735"
   //             alt=""
   //           />
   //         </div>
