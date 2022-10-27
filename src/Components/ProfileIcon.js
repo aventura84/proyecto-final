@@ -1,4 +1,4 @@
-import"../styles/profileIcon.scss";
+import"../styles/profileIcon.css";
 
 function profileIcon(){
 return(
