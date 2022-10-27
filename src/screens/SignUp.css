@@ -1,4 +1,32 @@
-.signUp
-{
-    flex: auto;
+.signup__screen{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
 }
+.signup__screen.signup__box{
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 10px;
+}
+.sign__up.input__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+ }
+.sign__up label {
+    font-size: 12px;
+    color: grey;
+}
+.sign__up button {
+    background-color: blue;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 6px 14px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
