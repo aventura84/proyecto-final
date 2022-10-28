@@ -8,6 +8,7 @@ import Home from "./Home/Home";
 import Post from "./Components/Post";
 import { useState, useEffect } from "react";
 //import ProfileIcon from"./ProfileIcon"
+//image from "../images/profile.jpg";
 function App(){
 //const [modalStyle]=useState(getModalStyle);
 const[posts,setPosts]=useState([]);
@@ -15,62 +16,62 @@ const[open, setOpen]=useState(false);
 const[openSignIn,setOpenSignIn]=useState(false)
 const[username,setUsername]=useState('');
 const[password,setPassword]=useState('');
-return<div>Hola</div>
+return<div>Hola
+//<ProfileIcon iconSize="small"image={image}/>
+</div>
+
 }
 export default App;
-//function App() {
-//const classes=useStyles();
-//const[email,setEmail]=useState('');
-//const[user,setUser]=useState(null);
-//   useEffect(() => {
-//     const unsubscribe = AuthenticatorAssertionResponse.onAuthStateChanged((authUser) => {
-//       if (authUser) {
-//         console.log(authUser);
-  //         //user has logged in....
-  //         console.log(authUser);
-  //         setUser(authUser);
+function App() {
+const classes=useStyles();
+const[email,setEmail]=useState('');
+const[user,setUser]=useState(null);
+ useEffect(() => { const unsubscribe = AuthenticatorAssertionResponse.onAuthStateChanged((authUser) => {
+ if (authUser) {
+console.log(authUser);
+//user has logged in....
+console.log(authUser);
+  setUser(authUser);
   
-  //         if (authUser.displayName) {
-  //           //dont update username
-  //         } else {
+ if (authUser.displayName) {
+//dont update username
+   } else {
   //           if we just created someone
-  //           return authUser.updateProfile({
-  //             displayName: username
-  //           });
-  //         }
-  //       } else {
-  //         //user has logged out...
-  //         setUser(null);
-  //       }
-  //     });
-  //     return () => {
-  //       //perform some cleanup actions
-  //       unsubscribe();
-  //     }
-  //   }, [user, username]);
-  
-  
-  //   useEffect(() => {
+    return authUser.updateProfile({
+           displayName: username
+       });
+   }
+       } else {
+  //user has logged out...
+         setUser(null);
+      }
+    });
+     return () => {
+       //perform some cleanup actions
+       unsubscribe();
+     }
+     }, [user, username]);
+    useEffect(() => {
   //     //this is where the code runs
-  //     db.collection('posts').onSnapshot(snapshot => {
-  //       setPosts(snapshot.docs.map(doc => ({
-  //         id: doc.id,
-  //         post: doc.data()
-  //       })));
-  //     })
-  //   }, []);
+    db.collection('posts').onSnapshot(snapshot => {
+     setPosts(snapshot.docs.map(doc => ({
+     id: doc.id,
+         post: doc.data()
+      })));
+       })
+     }, []);
   
-  //   const signUp = (event) => {
-  //     event.preventDefault();
+    const signUp = (event) => {
+    event.preventDefault();
   
   
-  //     return (
-  //       <div className="app">
-  //         <Modal
-  //           open={open}
-  //           onClose={() => setOpen(false)}
-  //         >
-  //           <div style={modalStyle} className={classes.paper}>
+    return (
+ //      <div className="app">
+//      <Modal
+//          open={open}
+//       onClose={() => setOpen(false)}
+ //   >
+  //        <div style={modalStyle} className={classes.paper}>
   //<form>
   //             <Input
   //               type="text"
@@ -92,9 +93,9 @@ export default App;
   //               >
   //                 <Button type="submit" onClick={signIn}>Sign In</Button>
   //               </form>
-  //           </div>
+  //          
   //         </Modal>
-  
+  <div/>
   //         <div className="app__header">
   //           <img
   //             className="app__headerImage"
