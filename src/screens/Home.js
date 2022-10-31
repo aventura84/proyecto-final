@@ -20,8 +20,6 @@ if (loading) return <p>loading posts</p>;
       <Stories />
       <Posts />
       {user ? <Newpost addPost={addPost}> : null}
-      <i class="material-icons">thumb_down</i>
-      <i class="material-icons">thumb_up</i>
     </div>
   );
 ;}
