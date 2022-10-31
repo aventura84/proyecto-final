@@ -11,7 +11,7 @@ const {token}=useContext (AuthContext)
         try{
             setSending(true);
             const data= new FormData(e.target);
-            const post= await sendPostService({data})
+            const post= await sendPostService({data,token});
 
             addPost(post);
             e.target.reset();
