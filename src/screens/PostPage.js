@@ -12,8 +12,12 @@ export const Postpage = () => {
 
   return (
     <section>
-      <h1>Post from {post.email}</h1>
-      <Post post={post} />
+      <h1>User {user.email}</h1>
+      <section class="user-data">
+        <p>User id: {user.id}</p>
+        <p>Registered on {new Date(user.created_at).toLocaleString()}</p>
+      </section>
+      <UserPosts id={user.id} />
     </section>
   );
 };

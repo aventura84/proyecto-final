@@ -4,7 +4,6 @@ import "./SignUp.css";
 function SignUpScreen() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const errorRef = useRef();
   const [createdAccount, setCreatedAccount] = useState(false);
 
   const createAccountHandler = () => {
