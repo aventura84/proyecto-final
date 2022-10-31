@@ -1,7 +1,7 @@
 import { createContext,useEffect,useState } from "react";
 import {getMyDataService} from "../services";
 
-export const AuthContext = createContest(null);
+export const AuthContext = createContext(null);
 export const AuthProviderComponent= ({ children }) => {
   const [token,setToken]=useState(localStorage.getItem("token"))
 const[user,setUser]=useState(null);
