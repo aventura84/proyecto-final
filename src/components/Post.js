@@ -3,6 +3,7 @@ import { postComments } from "../data/comments.js";
 import CommentForm from "./CommentForm.js";
 import Comments from "./CommentForm.js";
 import {AuthContext} from"../context/AuthContext";
+import { getAllPostsService } from "../index2.js";
 function Post({ username, caption, imageUrl }) {
   const [comments, setComments] = useState([]);
   const {user}=useContext(AuthContext);
@@ -17,7 +18,7 @@ await deletePostService ({id,token});
   };
 
   
-  const data = await loadClonService();
+  const data = await getAllPostsService();
 
 
   return (
@@ -50,7 +51,7 @@ await deletePostService ({id,token});
         </section>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default Post
