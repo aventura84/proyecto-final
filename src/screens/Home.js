@@ -2,22 +2,26 @@ import Posts from "../components/Posts";
 import { Postlist } from "../components/Postlist";
 import { AuthContext } from "../context/AuthContext";
 import Stories from "../components/Stories";
+import usePosts from "../hooks/usePosts";
+import { Auth } from "../components/Auth";
 
-function HomeScreen() {
-  const { posts, loading, error } = Posts();
-
-  if (loading) return <p>loading posts</p>;
+function HomeScreen =()=> {
+  const { posts, loading, error,addPost} = usePosts();
+const {user} = useContext(AuthContext);
+  
+if (loading) return <p>loading posts</p>;
   if (error) return <ErrorMessage message={error} />;
 
-  console.log(posts);
+  console.log(posts, loading, error);
   return (
     <div>
-      <Postlist posts={posts} />
+<h1>Latest Posts</h1>
+      <Postlist posts={posts} />  
       <Stories />
       <Posts />
-      {user ? <p>aquí formulario de envío de post</p> : null}
+      {user ? <Newpost addPost={addPost}> : null}
     </div>
   );
-}
+;}
 
 export default HomeScreen;
