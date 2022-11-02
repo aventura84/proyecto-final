@@ -1,33 +1,35 @@
 import { useEffect, useState } from "react";
-import { getSinglePostService } from "../index2";
+import services from "../services";
 
-const usePosts = () => {
-  const [posts, setPots] = useState(null);
+export const usePost = (postId) => {
+  const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
-const [error, setError] = useState("");
-const removePost = (id) => {};
+  const [error, setError] = useState("");
+  const removePost = (id) => {
+    // TODO implement
+  };
 
-useEffect(()=>
-const loadPost= async ()=>{
-  try{
-    setLoading(true);
+  const addPost = () => {
+    // TODO implement
+  };
 
-    const data = await getSinglePostService(id);
-    
-    setPots(data);
+  useEffect(() => {
+    const loadPost = async () => {
+      try {
+        setLoading(true);
 
-  }catch(error){
-    setError(error.message);
+        const data = await services.posts.getPost(postId);
 
-  }finally{
-    setLoading(false);
-  }
-}
+        setPost(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-loadPost();
-},[id])
+    loadPost();
+  }, [postId]);
 
-return { posts, loading, error, addPost };
+  return { post, loading, error, addPost, removePost };
 };
-
-export default usePost;

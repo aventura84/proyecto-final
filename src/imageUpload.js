@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import {Button}from "material-ul/core";
-import {useLocalStorage}from "./useLocalStorage";
+import {useLocalStorage}from "./hooks/useLocalStorage";
 
 function ImageUpload({username}) {
     const [image,setImage]=useState(null);
@@ -48,12 +48,13 @@ const handleChange=(e)=>{
     
       <div className="imageupload">
         <progress value={progress} max="100"/>
-<input type="text"placeholder='Enter a caption...'onChange={event=>setCaption(event.target.value)/>
+<input type="text"placeholder='Enter a caption...'onChange={event=>setCaption(event.target.value)}/>
 <input type="file"onChange={handleChange}/>
-<Button onClick={handleUpload}/>
+<Button onClick={handleUpload}>
 Upload
 </Button>
-    </div>
+        </div>
+
   )
 }
 

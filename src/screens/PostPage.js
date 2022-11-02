@@ -1,15 +1,16 @@
 import { useParams } from "react-router-dom";
 import { ErrorMessage } from "../components/errorMessage";
-import usePost from "../hooks/usePost";
+import { usePost } from "../hooks/usePost";
 
 export const Postpage = () => {
   const { id } = useParams;
 
   const { post, loading, error } = usePost(id);
 
-  if (loading) return <p>cargando post...</p>;
+  if (loading) return <p>Cargando post...</p>;
   if (error) return <ErrorMessage message={error} />;
 
+  const user = post.user;
   return (
     <section>
       <h1>User {user.email}</h1>
