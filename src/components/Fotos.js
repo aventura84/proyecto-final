@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 const Fotos = (userId) => {
   const [fotos, setFotos] = useState([]);
   const [loading, setloading] = useState(true);
@@ -10,7 +9,7 @@ const Fotos = (userId) => {
       try {
         setloading(true);
 
-        const data = await services.fotos.getAllPhotos();
+        const data = await fotos.getAllPhotos();
 
         setFotos(data);
       } catch (error) {
