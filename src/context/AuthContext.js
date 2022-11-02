@@ -1,5 +1,5 @@
 import { createContext,useEffect,useState } from "react";
-import {getMyDataService} from "../services";
+import {getMyDataService} from "../index2";
 
 export const AuthContext = createContext(null);
 export const AuthProviderComponent= ({ children }) => {
@@ -18,9 +18,6 @@ try{
 }catch(error){
 
 }
-
-}
-]
 if(token)getUserdata()
 },[token]);
 const logout = () =>{
