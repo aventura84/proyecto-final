@@ -90,7 +90,7 @@ export const logInUserService = async ({ email, password }) => {
   });
 
   const json = await response.json();
-  export const getUserdata = async ([token]) => {
+  const getUserdata = async ([token]) => {
     const response = await fetch("${process.env.REACT_APP_BACKEND}/user", {
       headers: {
         Authoritation: token,
@@ -143,17 +143,30 @@ export const deletePostService = async ({ id, token }) => {
   }
 };
 
-//export const deletePostService = async ({ id, token }) => {
-//  const response = await fetch(`${process.env.REACT_APP_BACKEND}/post/${id}`, {
-//    method: "DELETE",
-//   headers: {
-//     Authorization: token,
-//    },
-//  });
+export const getAllPhotos = async () => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}`);
 
-//const json = await response.json();
+  const json = await response.json();
 
-//  if (!response.ok) {
-//   throw new Error(json.message);
-// }
-//};
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};
+
+export const getPhotosById = async ()=>{
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/foto/${id}',{
+    method:"GET",
+    headers:{
+      Authoritation:token
+    },
+  });
+
+  const json = await response.json();
+
+  if (!response.ok){
+    throw new Error(json.message);
+  }
+return json.data;
+};
