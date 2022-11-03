@@ -17,7 +17,6 @@ try{
     setUser(data);
 }catch(error){
 
-}
 if(token)getUserdata()
 },[token]);
 const logout = () =>{
