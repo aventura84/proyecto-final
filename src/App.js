@@ -8,6 +8,8 @@ import LoginScreen from "./screens/Login";
 import SignUpScreen from "./screens/SignUp";
 import NewPost from "./components/NewPost";
 import Postpage from "./screens/PostPage";
+import Postlist from "./components/Postlist";
+
 function App() {
   return (
     <main>
@@ -18,7 +20,8 @@ function App() {
         <Route path="/post/create" element={<NewPost />}></Route>
         <Route path="/register" element={<SignUpScreen />}></Route>
         <Route path="*" element={<NotFoundPage />}></Route>
-        <Route path="/postpage" element={<Postpage />}></Route>
+        <Route path="/post/page" element={<Postpage />}></Route>
+        <Route path="/post/list" element={<Postlist />}></Route>
       </Routes>
       <Footer />
     </main>
