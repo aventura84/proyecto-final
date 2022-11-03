@@ -1,12 +1,14 @@
 import { AuthContext } from "../providers/AuthProvider";
 // import usePosts from "../hooks/usePosts";
 import { useContext } from "react";
+import usePosts from "../hooks/usePosts";
+import { Postlist } from "../components/Postlist";
 
 function HomeScreen() {
   // const { posts, loading, error, addPost } = usePosts();
   const user = useContext(AuthContext) ?? {};
   const { email, id, login } = user;
-
+  const { posts } = usePosts();
   // if (loading) return <p>loading posts</p>;
   // if (error) return <ErrorMessage message={error} />;
 
@@ -14,8 +16,8 @@ function HomeScreen() {
   return (
     <div>
       <h1>Latest Posts</h1>
-      {/* <Postlist posts={posts} />
-      <Stories />
+      <Postlist posts={posts} />
+      {/* <Stories />
       <Posts /> */}
       <button
         onClick={() => {

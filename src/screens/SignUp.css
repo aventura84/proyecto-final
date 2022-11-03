@@ -1,32 +1,40 @@
-.signup__screen{
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    inset: 0;
-    justify-content: center;
-    align-items: center;
+.signup__screen {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
 }
-.signup__screen.signup__box{
-    background-color: #eee;
-    padding: 20px;
-    border-radius: 10px;
+
+.signup__screen section {
+  border: 1px solid #ccc;
+  padding: 30px;
+  border-radius: 4px;
 }
-.sign__up.input__field {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
- }
-.sign__up label {
-    font-size: 12px;
-    color: grey;
+
+.signup__screen input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 5px 10px 5px 10px;
+  width: 100%;
 }
-.sign__up button {
-    background-color: blue;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    padding: 6px 14px;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-  
+
+.signup__screen label {
+  font-size: 12px;
+  color: grey;
+}
+
+.signup__screen button {
+  background-color: blue;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 6px 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 100%;
+}

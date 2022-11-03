@@ -142,3 +142,31 @@ export const deletePostService = async ({ id, token }) => {
     throw new Error(json.message);
   }
 };
+
+export const getAllPhotos = async () => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}`);
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};
+
+export const getPhotosById = async ()=>{
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/foto/${id}',{
+    method:"GET",
+    headers:{
+      Authoritation:token
+    },
+  });
+
+  const json = await response.json();
+
+  if (!response.ok){
+    throw new Error(json.message);
+  }
+return json.data;
+};

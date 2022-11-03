@@ -3,17 +3,23 @@ import { createContext, useEffect, useState } from "react";
 export const AuthContext = createContext({
   email: "",
   id: "",
+  token: "",
   login: () => {},
 });
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    email: "",
+    id: "",
+    token: "",
+    login: () => {},
+  });
 
   useEffect(() => {
     setUser({
-      email: "test@test.com",
-      id: "1234",
+      email: user.email,
+      id: user.id,
       login: (email, password) => {
         alert(email + password);
       },

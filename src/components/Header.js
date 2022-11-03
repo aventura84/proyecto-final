@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header>
-      <h1>Clon Instagram</h1>
+      <h1 style={{}}>Clon Instagram</h1>
     </header>
   );
 };

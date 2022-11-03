@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import services from "../services";
 import "./SignUp.css";
 
 function SignUpScreen() {
@@ -6,11 +7,10 @@ function SignUpScreen() {
   const passwordRef = useRef();
   const [createdAccount, setCreatedAccount] = useState(false);
 
-  const createAccountHandler = () => {
+  const createAccountHandler = async () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    // Create account
-    alert(`Created account with email ${email} and password ${password}`);
+    await services.user.register({ email, password });
     setCreatedAccount(true);
   };
 
@@ -19,11 +19,13 @@ function SignUpScreen() {
   }
   return (
     <div className="signup__screen">
-      <label>Email</label>
-      <input ref={emailRef} placeholder="Enter your email" />
-      <label>Password</label>
-      <input ref={passwordRef} placeholder="Enter your password" />
-      <button onClick={createAccountHandler}>Create Account</button>
+      <section>
+        <h1>Clon de Instagram</h1>
+        <input ref={emailRef} placeholder="Enter your email" />
+        <input ref={passwordRef} placeholder="Enter your password" />
+
+        <button onClick={createAccountHandler}>Create Account</button>
+      </section>
     </div>
   );
 }

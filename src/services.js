@@ -10,21 +10,27 @@ const parseResponse = async (response) => {
 
 const endpoints = {
   user: process.env.REACT_APP_BACKEND + "/user",
+  register: process.env.REACT_APP_BACKEND + "/user/register",
   userById: (id) => process.env.REACT_APP_BACKEND + `/user/${id}`,
   postsByUserId: (id) => process.env.REACT_APP_BACKEND + `/user/${id}/posts`,
-  login: process.env.REACT_APP_BACKEND + "/auth/login",
+  login: process.env.REACT_APP_BACKEND + "/user/login",
   posts: process.env.REACT_APP_BACKEND + "/post",
+  createPost: process.env.REACT_APP_BACKEND + "/post/create",
   postById: (id) => process.env.REACT_APP_BACKEND + `/post/${id}`,
 };
 
+const session = localStorage.getItem("session");
+const { token } = JSON.parse(session);
+
 const headers = {
   "Content-Type": "application/json",
+  Authorization: token,
 };
 
 // USER
 
 const register = async ({ email, password }) => {
-  const response = await fetch(endpoints.user, {
+  const response = await fetch(endpoints.register, {
     method: "POST",
     body: JSON.stringify({ email, password }),
     headers: headers,
@@ -66,13 +72,11 @@ const getPosts = async () => {
   return parseResponse(response);
 };
 
-export const sendPostService = async ({ data, token }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}`, {
+export const createPost = async ({ data, token }) => {
+  const response = await fetch(endpoints.createPost, {
     method: "POST",
     body: data,
-    headers: {
-      Authorization: token,
-    },
+    headers: headers,
   });
 
   const json = await response.json();
@@ -99,21 +103,6 @@ export const deletePostService = async ({ id, token }) => {
   }
 };
 
-//export const deletePostService = async ({ id, token }) => {
-//  const response = await fetch(`${process.env.REACT_APP_BACKEND}/post/${id}`, {
-//    method: "DELETE",
-//   headers: {
-//     Authorization: token,
-//    },
-//  });
-
-//const json = await response.json();
-
-//  if (!response.ok) {
-//   throw new Error(json.message);
-// }
-//};
-
 const services = {
   user: {
     register,
@@ -124,6 +113,7 @@ const services = {
     getPost,
     getPosts,
     getUserPosts,
+    createPost,
   },
 };
 

@@ -1,10 +1,15 @@
 export const Postlist = ({ posts }) => {
   return posts.length ? (
-    <ul> 
-        {posts.map(tweet=>
-        <li key={posts.id}>Post post={posts}/>
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>
+          <article>
+            <h2>{post.text}</h2>
+            <img src={post.image} alt="Post" />
+          </article>
         </li>
-        </ul>
+      ))}
+    </ul>
   ) : (
     <p>There are not posts yet...</p>
   );

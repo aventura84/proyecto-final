@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { ErrorMessage } from "../components/errorMessage";
+import UserPosts from "../components/User";
 import { usePost } from "../hooks/usePost";
 
 export const Postpage = () => {
